@@ -40,7 +40,7 @@ print(f"Total Months : {count}")
 print(f"Total : ${total}")
 print(f"Average Change : ${rounded_avg}")
 print(f"Greatest increase in profit : {maxi} ($ {max})")
-print(f"Greatest decrease in profit : {mini} ($s {min})")
+print(f"Greatest decrease in profit : {mini} ($ {min})")
 
 ot_path = os.path.join('..', 'python_challenge', 'PyBank','Analysis', 'PyBank.txt')
 # with open(ot_path, "x") as txtfile:
@@ -51,7 +51,7 @@ f.write(f"Total Months : {count} \n")
 f.write(f"Total : ${total} \n")
 f.write(f"Average Change : ${rounded_avg} \n")
 f.write(f"Greatest increase in profit : {maxi} ($ {max}) \n")
-f.write(f"Greatest decrease in profit : {mini} ($s {min}) \n")
+f.write(f"Greatest decrease in profit : {mini} ($ {min}) \n    ")
 f.close()
 
 
