@@ -2,28 +2,29 @@ import os
 import csv
 
 csvpath = os.path.join('..', 'python_challenge', 'PyBank','Resources', 'budget_data.csv')
-
+#reading csv file
 with open(csvpath) as filepath:
     csvreader = csv.reader(filepath, delimiter = ',')
 
-    csvheader = next(csvreader)
-    final = list(csvreader)
-
+    csvheader = next(csvreader) #removing header
+    final = list(csvreader) 
+    #initialize total months and total to 0
     count = 0
     total = 0
     for col in final:
-        count = count+1
-        total += int(col[1])
+        count = count+1 #Calculate total months
+        total += int(col[1]) #Calculate Total
 
-    firstele = int(final[0][1])
-    # print(firstele)
+    firstele = int(final[0][1]) 
+    
     lastel = int(final[-1][1])
-    # print(lastel)
+    # calculate Average Change
     avg = (lastel - firstele)/(count - 1)    
     rounded_avg = round(avg,2)
 
     max = 0
     min = int(final[1][1]) - int(final[0][1])
+    #finding minimum and maximum change in profits
     for i in range(1, count-1):
         diff = int(final[i][1]) - int(final[i-1][1])
         if diff < min:
@@ -32,9 +33,7 @@ with open(csvpath) as filepath:
         if diff > max:
             max = diff
             maxi = final[i][0]
-    # print(f" {mini} $ {min}")
-    # print(f" {maxi} $ {max}")
-    # print(total)
+    
         
 print(f"Total Months : {count}")
 print(f"Total : ${total}")
@@ -42,10 +41,11 @@ print(f"Average Change : ${rounded_avg}")
 print(f"Greatest increase in profit : {maxi} ($ {max})")
 print(f"Greatest decrease in profit : {mini} ($ {min})")
 
+#Path for output file
 ot_path = os.path.join('..', 'python_challenge', 'PyBank','Analysis', 'PyBank.txt')
-# with open(ot_path, "x") as txtfile:
 
-    # csvwriter = csv.writer(csvfile, delimiter=',')
+# writing output in text file
+
 f = open(ot_path, "w")
 f.write(f"Total Months : {count} \n")
 f.write(f"Total : ${total} \n")
